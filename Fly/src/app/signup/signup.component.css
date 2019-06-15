@@ -1,0 +1,25 @@
+.invalid-feedback{ color:red;}
+.signup-container{
+display: flex;
+flex-direction: column;
+}
+
+.signup-container > * {
+width: 100%;
+}
+.form{
+width:70%; margin:auto;
+background-image: url("/src/assets/images/signin2.jpg"); 
+}
+
+.rdnbrn{ margin:0px 3%}
+
+/* .mat-raised-button{
+    
+} */
+.signup-submit{
+    text-align:center;
+}
+.matcard{
+    background-color: transparent;
+}

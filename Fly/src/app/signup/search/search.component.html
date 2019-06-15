@@ -1,0 +1,32 @@
+<form [formGroup]="stateForm" class="tktForm" style="text-align: center">
+  <mat-form-field class="from">
+    <input type="text" id="fromInput" (change)="update()" matInput placeholder="From" formControlName="stateGroup" required [matAutocomplete]="autoGroup">
+      <mat-autocomplete #autoGroup="matAutocomplete">
+        <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+          <mat-option *ngFor="let fromName of group.names" [value]="fromName">
+            {{fromName}}
+          </mat-option>
+      </mat-optgroup>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="to">
+    <input type="text" id="toInput" (change)="update()" matInput placeholder="To" formControlName="stateGroup" required [matAutocomplete]="autoToGroup">
+      <mat-autocomplete #autoToGroup="matAutocomplete">
+        <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+          <mat-option *ngFor="let toName of group.names" [value]="toName">
+            {{toName}}
+          </mat-option>
+      </mat-optgroup>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="date" >
+    <mat-label>Onward Date</mat-label>
+    <input id="departInput" (change)="update()" matInput [matDatepicker]="picker" [min]="today">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker color="primary"></mat-datepicker>
+  </mat-form-field>
+  <button type="button" mat-raised-button color="primary" (click)="searchFlights()">Search Flights</button>
+</form>
+<!-- <div>
+    <img src="../assets/img/guarantee.PNG">
+</div> -->

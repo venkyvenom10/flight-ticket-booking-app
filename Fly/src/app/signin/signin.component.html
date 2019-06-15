@@ -1,0 +1,51 @@
+<!-- 
+<mat-card class="signin-card">
+  <h2>Sign in</h2>
+  <form [formGroup]="SignForm" class="Signin-container" (ngSubmit)="Signin()">
+
+    <mat-form-field [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+     Email: <input matInput type="email" placeholder="Email" formControlName="email">
+    </mat-form-field>>
+
+    <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+      <div style="color: red" *ngIf="formControls.email.errors.required">Email is required</div>
+    </div>
+
+    <mat-form-field [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+      Password:<input matInput type="password" placeholder="Password" formControlName="password">
+    </mat-form-field>>
+
+    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+      <div style="color: red" *ngIf="formControls.password.errors.required">Password is required</div>
+    </div>
+
+    <p>
+      <input type="submit" value="Signin">
+    </p>
+  </form>
+</mat-card> -->
+
+<div class="form">
+<mat-card class="signin-card">
+<div class="example-container">
+    <h2 style="color:white">Sign in</h2>
+  <mat-form-field>
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password"  required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage1()}}</mat-error>
+
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+     </button> 
+  </mat-form-field>
+</div>
+<button mat-raised-button color="primary">Submit</button>
+
+</mat-card>
+</div>

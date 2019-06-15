@@ -1,0 +1,87 @@
+
+<!-- <li *ngFor="let flight of flights">
+  {{flight.name}}
+</li> -->
+<!-- <mat-table  #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+    <td mat-cell *matCellDef="let flights"> {{flights.name}} </td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="departureTime">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Departure Time</th>
+    <td mat-cell *matCellDef="let flights"> {{flights.departureTime}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="duration">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Duration</th>
+    <td mat-cell *matCellDef="let flights"> {{flights.duration}} </td>
+  </ng-container>
+
+ 
+  <ng-container matColumnDef="arrivalTime">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Arrival Time</th>
+    <td mat-cell *matCellDef="let flights"> {{flights.arrivalTime}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+    <td mat-cell *matCellDef="let flights"> {{flights.price}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> -->
+
+
+<!-- <div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div> -->
+
+
+<div class="example-container mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let flight">{{flight.name}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="departureTime">
+      
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Departure Time </th>
+      <td mat-cell *matCellDef="let flight">{{flight.departureTime}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="duration">
+      
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Duration </th>
+      <td mat-cell *matCellDef="let flight">{{flight.duration}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="arrivalTime">
+      
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Arrival Time </th>
+      <td mat-cell *matCellDef="let flight">{{flight.arrivalTime}}  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+      <td mat-cell *matCellDef="let flight">{{flight.price}}  </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
