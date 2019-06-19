@@ -5,5 +5,12 @@
 .tktForm{
     margin-top: 0px;
     
-    /* background-image: url('/src/assets/images/jeshoots-com-722888-unsplash.jpg'); */
+    background-image: url('/src/assets/images/jeshoots-com-722888-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 350px;
 } 
+.search{
+    padding:120px 5% 10px 5%;
+    
+}

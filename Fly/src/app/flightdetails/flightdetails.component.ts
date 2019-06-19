@@ -4,6 +4,7 @@ import { FlightService } from './flight.service';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { Subject, BehaviorSubject, Subscription } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
+import { Routes, RouterModule, Router } from '@angular/router';
 
 
 
@@ -16,15 +17,11 @@ export class FlightdetailsComponent implements OnInit {
   flights:Flight[]=[];
 subscription:Subscription;
 
- //  dataSource:any;
-  displayedColumns: string[] = ['name', 'departureTime', 'duration', 'arrivalTime','price'];
-  // dataSource1 = new MatTableDataSource(this.flights);
+  displayedColumns: string[] = ['name', 'departureTime', 'duration','class','arrivalTime','price','actions'];
  
-  //  @ViewChild(MatSort) sort:MatSort;
-  constructor(private flightservice:FlightService) { 
-    // this.subscription=this.flightservice.flightObservable.subscribe(data:Flight[])=>this.flights=data);
-    // this.temp = this.flights.slice();
-  }
+ 
+  
+  constructor(private flightservice:FlightService) {}
 
   // getFlights(){
   //   // this.flights.forEach((x)=>this.location.push(x.location));
@@ -34,18 +31,31 @@ subscription:Subscription;
   // }
   
   dataSource;
+  returnDataSource;
 
   @ViewChild(MatSort) sort: MatSort;
 
   
   ngOnInit() {
-    // this.getflights();
+    //  this.getflights();
     
    
-  this.subscription=this.flightservice.flightObservable.subscribe((data:Flight[])=>(this.flights=data));
-    this.flightservice.getflights();
+  this.subscription=this.flightservice.flightObservable.subscribe((data:Flight[])=>{
+    this.flights=data;
+
     this.dataSource = new MatTableDataSource(this.flights);
-   this.dataSource.sort = this.sort;
+    this.dataSource.sort = this.sort;
+  });
+
+  this.subscription=this.flightservice.flightReturnObservable.subscribe((data:Flight[])=>{
+    this.flights=data;
+
+    this.returnDataSource = new MatTableDataSource(this.flights);
+    this.returnDataSource.sort = this.sort;
+  });
+    this.flightservice.getflights();
+    
+   
   
   }
  

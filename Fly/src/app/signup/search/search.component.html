@@ -1,6 +1,7 @@
-<form [formGroup]="stateForm" class="tktForm" style="text-align: center">
+<div class="tktForm">
+<form [formGroup]="stateForm" class="search" style="text-align: center" (ngSubmit)="searchFlights()">
   <mat-form-field class="from">
-    <input type="text" id="fromInput" (change)="update()" matInput placeholder="From" formControlName="stateGroup" required [matAutocomplete]="autoGroup">
+    <input type="text"  matInput placeholder="From" formControlName="from" required [matAutocomplete]="autoGroup">
       <mat-autocomplete #autoGroup="matAutocomplete">
         <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
           <mat-option *ngFor="let fromName of group.names" [value]="fromName">
@@ -10,7 +11,7 @@
     </mat-autocomplete>
   </mat-form-field>
   <mat-form-field class="to">
-    <input type="text" id="toInput" (change)="update()" matInput placeholder="To" formControlName="stateGroup" required [matAutocomplete]="autoToGroup">
+    <input type="text" matInput placeholder="To" formControlName="to" required [matAutocomplete]="autoToGroup">
       <mat-autocomplete #autoToGroup="matAutocomplete">
         <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
           <mat-option *ngFor="let toName of group.names" [value]="toName">
@@ -19,14 +20,38 @@
       </mat-optgroup>
     </mat-autocomplete>
   </mat-form-field>
+  <span class="spacer"></span>
   <mat-form-field class="date" >
     <mat-label>Onward Date</mat-label>
-    <input id="departInput" (change)="update()" matInput [matDatepicker]="picker" [min]="today">
+    <input  matInput [matDatepicker]="picker" [min]="today" formControlName="picker">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker color="primary"></mat-datepicker>
   </mat-form-field>
-  <button type="button" mat-raised-button color="primary" (click)="searchFlights()">Search Flights</button>
+  <mat-form-field class="date" >
+      <mat-label>Return Date</mat-label>
+      <input  matInput [matDatepicker]="picker1" [min]="tommorow" formControlName="picker1">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1 color="primary"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="traveller">
+        <mat-label>Traveller(s)</mat-label>
+        <mat-select formControlName="traveller">
+          <mat-option value="Adult">Adult</mat-option>
+          <mat-option value="Child">Child</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field class="Class">
+          <mat-label>Class</mat-label>
+          <mat-select formControlName="class">
+            <mat-option value="economy">Economy</mat-option>
+            <mat-option value="business">Business</mat-option>
+            </mat-select>
+        </mat-form-field>
+  <button type="submit" mat-raised-button color="primary" (click)="searchFlights()">Search Flights</button>
 </form>
+</div>
+
+
 <!-- <div>
     <img src="../assets/img/guarantee.PNG">
 </div> -->

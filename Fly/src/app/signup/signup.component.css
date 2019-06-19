@@ -9,7 +9,7 @@ width: 100%;
 }
 .form{
 width:70%; margin:auto;
-background-image: url("/src/assets/images/signin2.jpg"); 
+background-image: url("C:\Users\lenovo\Desktop\Fly\src\assets\images\signin2.jpg"); 
 }
 
 .rdnbrn{ margin:0px 3%}
@@ -19,6 +19,7 @@ background-image: url("/src/assets/images/signin2.jpg");
 } */
 .signup-submit{
     text-align:center;
+    margin-top: 5px;
 }
 .matcard{
     background-color: transparent;

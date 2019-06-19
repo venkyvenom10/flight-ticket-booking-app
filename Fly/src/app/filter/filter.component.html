@@ -1,0 +1,27 @@
+ <!-- <h4>Price</h4>
+ <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [(options)]="options" >
+</ng5-slider>
+
+
+ <p>
+<span>{{filterForm.value.PriceMin}}</span>&nbsp;
+<span>{{filterForm.value.PriceMax}}</span>
+</p>  -->
+
+<mat-card>
+    <form [formGroup]="filterForm">
+    <mat-label>Price</mat-label> 
+   <mat-slider [min]="minValue" [max]="maxValue" thumbLevel [displayWith]="formatLabel" formControlName="value"></mat-slider>
+   <span class="spacer"></span>
+<h2>Departure from Bangalore</h2>
+<div *ngFor="let time of times.controls; let i=index">
+        <mat-checkbox type="checkbox" [formControl]="time"> {{departureTime.time[i].time}}</mat-checkbox>
+       </div> 
+<h2>Airlines</h2>
+<div *ngFor="let flight of flights.controls; let i=index">
+        <mat-checkbox type="checkbox" [formControl]="flight"> {{flightsName.flight[i].name}}</mat-checkbox>
+       </div>     
+<!-- <mat-divider fxFlex="1 0"></mat-divider>-->
+
+</form>
+</mat-card>

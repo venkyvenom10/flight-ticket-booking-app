@@ -6,6 +6,7 @@ import {startWith, map} from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
 import { Flight } from 'src/app/shared/flight';
 import { FlightService } from 'src/app/flightdetails/flight.service';
+import { Routes, RouterModule, Router } from '@angular/router';
 
 export interface StateGroup {
   letter: string;
@@ -31,14 +32,19 @@ export const _filter = (opt: string[], value: string): string[] => {
 export class searchComponent implements OnInit {
   flights:Flight[]=[];
   subscription:Subscription;
-
-
-  constructor(private fb: FormBuilder,
-              public datepipe: DatePipe,private flightservice:FlightService
-              ) {}
   stateForm: FormGroup = this.fb.group({
-    stateGroup: '',
-  });
+      from: [''],
+      to: [''],
+      picker: [''],
+      picker1:[''],
+      traveller:[''],
+      class:['']
+    });
+
+
+  constructor(private fb: FormBuilder,private flightservice:FlightService,private _router:Router
+              ) {}
+
 
   stateGroups: StateGroup[] = [{
     letter: 'A',
@@ -98,32 +104,50 @@ export class searchComponent implements OnInit {
 
   stateGroupOptions: Observable<StateGroup[]>;
   flight: object;
-  from: HTMLInputElement;
-  to: HTMLInputElement;
-  depart: HTMLInputElement;
   today = new Date();
 
   ngOnInit() {
-    this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filterGroup(value))
-      );
+    // this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges
+    //   .pipe(
+    //     startWith(''),
+    //     map(value => this._filterGroup(value))
+    //   );
+
+      this.stateForm.patchValue(this.flightservice.getselectedvalue());
      
  }
-  update() {
-    this.from = document.getElementById('fromInput') as HTMLInputElement;
-    this.to = document.getElementById('toInput') as HTMLInputElement;
-    this.depart = document.getElementById('departInput') as HTMLInputElement;
-  }
+  // update() {
+  //   this.from = document.getElementById('fromInput') as HTMLInputElement;
+  //   this.to = document.getElementById('toInput') as HTMLInputElement;
+  //   this.depart = document.getElementById('departInput') as HTMLInputElement;
+  // }
 
 
   searchFlights() {
-    let route = {
-      leaving_from: this.from.value,
-      going_to: this.to.value,
-      onward: this.datepipe.transform(this.depart.value, 'yyyyMMdd')
-    };
+    // let route = {
+    //   leaving_from: this.from.value,
+    //   going_to: this.to.value,
+    //   onward: this.datepipe.transform(this.depart.value, 'yyyyMMdd')
+    // };
+console.log(this.stateForm);
+    this.flightservice.filterFlights(this.stateForm.value);
+      this._router.navigate(["flightdetails"]);
+    
+  }
+
+  // private _filterGroup(value: string): StateGroup[] {
+  //   if (value) {
+  //     return this.stateGroups
+  //       .map(group => ({letter: group.letter, names: _filter(group.names, value)}))
+  //       .filter(group => group.names.length > 0);
+  //   }
+
+    // return this.stateGroups;
+  }
+
+
+
+
     // localStorage.setItem('route', JSON.stringify(route));
     // this.data.getBuses(this.from.value, this.to.value, this.datepipe.transform(this.depart.value, 'yyyyMMdd')).subscribe(
     //   data => {this.buses = data
@@ -131,16 +155,3 @@ export class searchComponent implements OnInit {
     //   });
     // this.router.navigate(['search']);
     // this.search.searchbus(this.from.value, this.to.value, this.datepipe.transform(this.depart.value, 'yyyyMMdd'));
-      this.flightservice.filterFlights(route)
-  }
-
-  private _filterGroup(value: string): StateGroup[] {
-    if (value) {
-      return this.stateGroups
-        .map(group => ({letter: group.letter, names: _filter(group.names, value)}))
-        .filter(group => group.names.length > 0);
-    }
-
-    return this.stateGroups;
-  }
-}

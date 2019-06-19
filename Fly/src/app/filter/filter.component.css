@@ -1,0 +1,10 @@
+.mat-slider {
+    width: 200px;
+  }
+  .vertical{
+    border-top-width: 0;
+    border-right-width: 1px;
+    border-right-style: solid;
+    height: 100%;
+  }
+ 

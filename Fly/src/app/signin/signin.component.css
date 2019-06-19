@@ -4,7 +4,7 @@
     height: 300px; 
     margin:50px;
     background-color:transparent;
-    background-image:url('/src/assets/images/signin3.jpg'); 
+    background-image:url('C:\Users\lenovo\Desktop\Fly\src\assets\images\signin3.jpg'); 
     }
     
 
@@ -35,6 +35,14 @@
   .example-container > * {
     width: 100%;
   }
+
+  .mat-raised-button{
+    margin-top: 0px;
+  }
+  .Signup{
+    margin-bottom: 50px;
+  }
+
 /*   
   .example-right-align {
     text-align: right;

@@ -1,0 +1,88 @@
+.Message {
+	color: #7c4ecc;
+	margin-left: 15%;
+}
+.getin{
+    color: rgb(93, 93, 139);
+    text-align: center;
+	float: right;
+	margin-right: 205px;
+}
+	.ul {
+    list-style-type: none;
+    padding: 0;
+    
+}
+.contact {
+	width: 40%;
+	justify-self: right;
+    float: right;
+    margin-top: 80px;
+}
+ .labelform {
+	/* display: flex; */
+	/* flex: 2; */
+	/* justify-content: flex-end; */
+	padding: .9em;
+    
+} 
+.h5 {
+		display: grid;
+		grid-template-columns: 30%;
+		color: red;
+	}
+
+.li,p {
+				display: inline-block;
+				vertical-align: top;
+				margin: 0;
+				padding-left: 1em;
+			}
+		
+	
+
+.contactform{
+    width: 50%;
+		margin-left: 10%;
+		float: left;
+}
+.form {
+		width: 50%;
+		margin-left: 10%;
+		float: left;
+		/* display: flex; */
+	}
+/* .input {
+		display: block;
+		width: 50%;
+		margin-bottom: 20px;
+		padding: 1em;
+	} */
+/* .textarea {
+		display: block;
+		width: 50%;
+		margin-bottom: 20px;
+		padding: 1em;
+	} */
+.error {
+		margin-top: -20px;
+		background: red;
+		padding: 0.5em;
+		display: inline-block;
+		font-size: 0.9em;
+		margin-bottom: 20px;
+	}
+
+.sbt {
+  /* background:#26cef8; */
+  background:#7c4ecc;
+  width: 10em;
+	border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 0.85em;
+	border-radius: 4px;
+	padding: 1em;
+	cursor: pointer;
+	 /* font-family: 'Montserrat'; */
+}

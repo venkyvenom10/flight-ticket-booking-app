@@ -29,8 +29,8 @@
 <mat-card class="signin-card">
 <div class="example-container">
     <h2 style="color:white">Sign in</h2>
-  <mat-form-field>
-    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-form-field>
+    <input class="input" matInput placeholder="Enter your email"  [formControl]="email" required>
     <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
   </mat-form-field>
 </div>
@@ -46,6 +46,9 @@
   </mat-form-field>
 </div>
 <button mat-raised-button color="primary">Submit</button>
+
+<h3>New member? please SingUp</h3>
+<button mat-raised-button color="primary" class="Signup" routerLink="/Signup">SingUp</button>
 
 </mat-card>
 </div>

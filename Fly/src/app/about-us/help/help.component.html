@@ -1,0 +1,76 @@
+<div class="contact" >
+  <h2 class="getin">Get in Touch with Us</h2>
+  <ul class="ul">
+     <li><img src="/src/assets/images/ph.png">
+    <p>+91 0000000000</p> 
+    </li> 
+    <li><img src="/src\assets\images\ph.png">
+    <p>+91 1111111111</p>
+    </li>
+    <li><img src="/src\assets\images\mail.png">
+    <p>contact@FlySky.in</p>
+    </li>
+  </ul>
+</div>
+<div>
+<h1 class="Message">Message Us</h1>
+<div class="contactform">
+  <!-- <div class="contact" >
+      <h2 class="getin">Get in Touch with Us</h2>
+      <ul class="ul">
+        <li><img src="/src/assets/images/ph.png">
+        <p>+91 0000000000</p>
+        </li>
+        <li><img src="/src\assets\images\ph.png">
+        <p>+91 1111111111</p>
+        </li>
+        <li><img src="/src\assets\images\mail.png">
+        <p>contact@FlySky.in</p>
+        </li>
+      </ul>
+  </div> -->
+  
+  <div class="form">
+    <form [formGroup]="msgFormGroup" (ngSubmit)="onSubmit()">
+      
+ 
+      <label class="labelform">
+      
+        Name*:<input type="text" formControlName="name">
+        <div *ngIf="submitted && msgFormGroup.controls['name'].errors" class="error">
+            <div *ngIf="msgFormGroup.controls['name'].errors.required">Name is required</div>
+        </div>
+      </label>
+      <label>
+       
+        Phone Number*:<input type="tel" formControlName="phno">
+        <div *ngIf="submitted && msgFormGroup.controls['phno'].errors" class="error">
+            <div *ngIf="msgFormGroup.controls['phno'].errors.required">Contact number is required</div>
+            <div *ngIf="msgFormGroup.controls['phno'].errors.pattern">Phone number must be a valid contact number</div>
+        </div>
+      </label>
+      <label>
+    
+        Email*:<input type="email" formControlName="email">
+        <div *ngIf="submitted && msgFormGroup.controls['email'].errors" class="error">
+            <div *ngIf="msgFormGroup.controls['email'].errors.required">Email address is required</div>
+            <div *ngIf="msgFormGroup.controls['email'].errors.email">Email must be a valid email address</div>
+        </div>
+      </label>
+      <label>
+        Message/Enquiry*:
+        <textarea formControlName="msg"></textarea>
+        <div *ngIf="submitted && msgFormGroup.controls['msg'].errors" class="error">
+            <div *ngIf=" msgFormGroup.controls['msg'].errors.required">Message/Enquiry details is required</div>
+        </div>
+      </label>
+
+      <input type="submit" value="Send" class="sbt">
+      <h5 class="h5" *ngIf="success">Your enquiry is submitted successfully!! We will contact you or resolve your issue shortly.</h5>
+    
+ 
+    </form>
+  </div>
+  
+</div>
+</div>
