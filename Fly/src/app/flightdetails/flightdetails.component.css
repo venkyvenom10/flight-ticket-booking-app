@@ -8,7 +8,7 @@
   .mat-table {
     overflow: auto;
     max-height: 500px;
-    background-image: url('C:\Users\lenovo\Desktop\Fly\src\assets\images\flight.jpg');
+    /* background-image: url('C:\Users\lenovo\Desktop\Fly\src\assets\images\flight.jpg'); */
     background-repeat: no-repeat;
 
   }

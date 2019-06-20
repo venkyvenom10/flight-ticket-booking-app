@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Flight } from '../shared/flight';
 import { FLIGHT, FLIGHTNAMES, DEPARTURETIME } from '../shared/flightdetails';
 import { Subject, Subscription, never } from 'rxjs';
+
 import { DatePipe } from '@angular/common';
 
 @Injectable({
@@ -15,13 +16,22 @@ searchFormdata={};
 flightObservable: Subject<Flight[]>= new Subject<Flight[]>(); 
 flightReturnObservable: Subject<Flight[]>= new Subject<Flight[]>();   
   datepipe:DatePipe = new DatePipe('en-US');
+  FLIGHT: any;
+  router: any;
   constructor() {
     this.temp = FLIGHT;
    }
+//getting id
+flightSubject=new Subject<Flight[]>();
+
+
+
   getflights(){
     this.flightObservable.next(this.temp);
     this.flightReturnObservable.next(this.tempReturn);
   }
+
+  //filter flights
   filterFlights(data){
    
     this.searchFormdata=data;
@@ -85,6 +95,9 @@ return this.searchFormdata;
     }).length>0
   }
 
-    
+  //getting id
+  getFlightDetailsById(id:number){
+ return FLIGHT.find(flight=>flight.id===id);
 
+  }
 }

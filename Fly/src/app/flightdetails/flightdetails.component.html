@@ -93,7 +93,7 @@
     <ng-container matColumnDef="actions">
       
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Bookings</th>
-      <td mat-cell *matCellDef="let flight"><button mat-raised-button color="primary">Book Now</button>  </td>
+      <td mat-cell *matCellDef="let flight"><button mat-raised-button color="primary"  [routerLink]="['/reviewdetails',flight.id]">Book Now</button>  </td>
     </ng-container>
     
 
@@ -146,7 +146,15 @@
     <ng-container matColumnDef="actions">
       
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Bookings</th>
-      <td mat-cell *matCellDef="let flight"><button mat-raised-button color="primary" [routerLink]="['/flightdetails',flights.id]">Book Now</button>  </td>
+      <td mat-cell *matCellDef="let flight">
+          <button mat-raised-button color="primary" [routerLink]="['/reviewdetails',flight.id]">Book Now</button> 
+
+        <!-- <button mat-raised-button color="primary" >Book Now</button>   -->
+        <!-- <button mat-raised-button color="primary">book</button> -->
+        <!-- <a routerLink="/reviewdetails/{{flight.id}}">Book Now</a> -->
+        <!-- </button>  -->
+      <!-- <a [routerLink]="['/reviewdetails/flight.id]">Book Now</a> -->
+      </td>
     </ng-container>
     
 
@@ -154,3 +162,5 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
+
+<!-- [routerLink]="['/flightdetails',flights.id]" -->

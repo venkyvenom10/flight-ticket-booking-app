@@ -4,7 +4,8 @@ import { FlightService } from './flight.service';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { Subject, BehaviorSubject, Subscription } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
-import { Routes, RouterModule, Router } from '@angular/router';
+import { Routes, RouterModule, Router, Params } from '@angular/router';
+import {ActivatedRoute} from '@angular/router'
 
 
 
@@ -15,13 +16,14 @@ import { Routes, RouterModule, Router } from '@angular/router';
 })
 export class FlightdetailsComponent implements OnInit {
   flights:Flight[]=[];
+  flight;
 subscription:Subscription;
 
   displayedColumns: string[] = ['name', 'departureTime', 'duration','class','arrivalTime','price','actions'];
  
  
   
-  constructor(private flightservice:FlightService) {}
+  constructor(private flightservice:FlightService,private route:ActivatedRoute) {}
 
   // getFlights(){
   //   // this.flights.forEach((x)=>this.location.push(x.location));
@@ -58,7 +60,8 @@ subscription:Subscription;
    
   
   }
- 
+
+  
  
 // getflights(){
 //   this.flights=this.flightservice.getflights();

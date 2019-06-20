@@ -1,0 +1,33 @@
+
+<h2>Review Booking</h2>
+<mat-card>
+    <mat-card-header>Departure</mat-card-header>
+    <h3>Bengaluru to Chennai</h3> 
+    <span class="spacer"></span>
+ <p *ngFor="let flight of flights"> 
+
+</p>
+{{ flight.name }}  =>
+{{ flight.departureTime }} =>
+{{ flight.duration}} =>
+{{ flight.arrivalTime }} =>
+{{ flight.price }} 
+</mat-card>
+<span class="spacer"></span>
+<hr>
+<!-- <mat-card>
+        {{ flight.name }}
+        {{ flight.departureTime }}
+        {{ flight.duration}}
+        {{ flight.arrivalTime }}
+        {{ flight.price }}
+</mat-card> -->
+<mat-card>
+    <h2>Price Summary</h2>
+    <span>Adult-- (1*3291)  $3291   </span><br>
+    <span>Child -- (1*3291)  $3291</span><br>
+    <span>Tax() -- 1291  $1291</span><hr>
+    <h3>Grand Total  $7873</h3>
+</mat-card>
+<span class="spacer"></span>
+<button mat-raised-button color="primary" [routerLink]="['/travellers']">Continue</button> 

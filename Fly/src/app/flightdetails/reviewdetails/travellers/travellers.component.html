@@ -1,0 +1,74 @@
+<div  fxLayout="row" fxLayoutGap="10px">
+
+<div>
+    <h2 style="text-align: center">Travellers Details</h2>
+    <mat-card>
+  <h2>Adult 1</h2>
+  <h5>Enter your name as mentioned on your passport</h5>
+    <input matInput placeholder="First Name">
+    <input matInput placeholder="Last Name">
+    <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Male</mat-radio-button>
+        <mat-radio-button value="2">Female</mat-radio-button>
+      </mat-radio-group>
+      <h2>Child 1</h2>
+  <h5>Enter your name as mentioned on your passport</h5>
+    <input matInput placeholder="First Name">
+    <input matInput placeholder="Last Name">
+    <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Male</mat-radio-button>
+        <mat-radio-button value="2">Female</mat-radio-button>
+      </mat-radio-group>
+      <h2>Acknowledgement</h2>
+      <mat-checkbox>I understand and agree with the privacy and policy, the terms & conditions</mat-checkbox><br>
+      <button mat-raised-button color="primary" style="margin-top: 20px;" [routerLink]="['/payment']">Continue</button> 
+    </mat-card>
+  </div>
+    <div class="price">
+    <mat-card>
+      <h3>Price Summary</h3><hr>
+      <span>Adult-- (1*3291)  $3291   </span><br>
+      <span>Child -- (1*3291)  $3291</span><br>
+      <span>Tax() -- 1291  $1291</span><hr>
+      <h3>Grand Total  $7873</h3>
+    </mat-card>
+  </div>
+  </div> 
+
+    <!-- <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Company (disabled)" disabled value="Google">
+        </mat-form-field>
+      
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width">
+            <input matInput placeholder="First name">
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width">
+            <input matInput placeholder="Long Last Name That Will Be Truncated">
+          </mat-form-field></td>
+        </tr></table>
+      
+        <p>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Address 2"></textarea>
+          </mat-form-field>
+        </p>
+      
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width">
+            <input matInput placeholder="City">
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width">
+            <input matInput placeholder="State">
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width">
+            <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+          </mat-form-field></td>
+        </tr></table>
+      </form> -->
+
